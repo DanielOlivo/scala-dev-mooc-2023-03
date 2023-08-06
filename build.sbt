@@ -49,6 +49,19 @@ libraryDependencies ++= Seq(
 
   "ch.qos.logback" % "logback-classic" % "1.2.3",
   "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion % Test,
-  "org.scalatest" %% "scalatest" % "3.1.0" % Test
+  "org.scalatest" %% "scalatest" % "3.1.0" % Test,
 )
 
+libraryDependencies ++= Dependencies.zio
+libraryDependencies ++= Dependencies.zioConfig 
+libraryDependencies ++= Dependencies.quill
+libraryDependencies += Dependencies.liquibase
+libraryDependencies ++= Dependencies.testContainers
+libraryDependencies += Dependencies.postgres 
+libraryDependencies += Dependencies.logback 
+libraryDependencies += Dependencies.zioHttp 
+//libraryDependencies ++= Dependencies.c
+
+scalacOptions += "-Ymacro-annotations"
+
+testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
